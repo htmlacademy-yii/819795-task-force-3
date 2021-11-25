@@ -1,7 +1,7 @@
 # Личный проект «TaskForce»
 
 * Студент: [Василий Литвиненко](https://up.htmlacademy.ru/yii/3/user/819795).
-* Наставник: `Evgeny Savich`(https://htmlacademy.ru/profile/id68926).
+* Наставник: [Сергей Титаков](https://htmlacademy.ru/profile/id1243803).
 
 ---
 
