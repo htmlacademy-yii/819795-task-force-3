@@ -61,7 +61,7 @@ class Task
 
   public function setStatus ($str)
   {
-        $this->status = self::STATUSES_ARRAY[$str];
+        $this->status = $str;
   }
 
   public function __construct($customer, $status = 'new', $executor = null)
