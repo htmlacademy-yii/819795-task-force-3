@@ -6,7 +6,7 @@ assert_options(ASSERT_QUIET_EVAL, 1);
 
 include 'Task.php';
 
-$task = new Task(1);
+$task = new Task(1, 'inwork');
 
 $task->setExecutor(3);
 
