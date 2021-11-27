@@ -51,12 +51,12 @@ class Task
 
   public function setCustomer ($str)
   {
-      $this->customer = $str;
+      $this->customer = strval($str);
   }
 
   public function setExecutor ($str)
   {
-        $this->executor = $str;
+        $this->executor = strval($str);
   }
 
   public function setStatus ($str)
@@ -88,15 +88,19 @@ class Task
         return null;
   }
 
-  public function getAllowedAction() : array
+  public function getAllowedActions($role)
    {
         switch ($this->status) {
-            case(self::STATUS_NEW):
-                return [self::ACTION_CANCEL, self::ACTION_RESPOND];
-            case(self::STATUS_IN_WORK):
-                return [self::ACTION_DONE, self::ACTION_REFUSE];
+            case(self::STATUS_NEW&&$role==$this->customer):
+                return self::ACTION_CANCEL;
+            case(self::STATUS_NEW&&$role==$this->executor):
+                return self::ACTION_RESPOND;
+            case(self::STATUS_IN_WORK&&$role==$this->customer):
+                return self::ACTION_DONE;
+            case(self::STATUS_IN_WORK&&$role==$this->executor):
+                return self::ACTION_REFUSE;
         }
-        return [];
+        return null;
    }
 
 

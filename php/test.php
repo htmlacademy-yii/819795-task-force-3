@@ -8,6 +8,10 @@ include 'Task.php';
 
 $task = new Task(1);
 
-print_r($task->getAllowedAction());
+$task->setExecutor(3);
+
+print_r($task);
+
+print_r($task->getAllowedActions(3));
 
 assert($task->getNextStatus('action_respond') == Task::STATUS_NEW, 'respond action');
