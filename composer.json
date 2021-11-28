@@ -1,0 +1,10 @@
+{
+    "name": "basay/taskforce",
+    "type": "project",
+    "require": {},
+     "autoload": {
+    "psr-4": {
+      "taskforce\\": "php/src/"
+    }
+   }
+}
