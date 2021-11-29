@@ -1,5 +1,5 @@
 <?php
-
+namespace taskforce\classes;
 class Task
 {
   private $executor;
@@ -90,19 +90,23 @@ class Task
 
   public function getAllowedActions($role)
    {
-        switch ($this->status) {
-            case(self::STATUS_NEW&&$role==$this->customer):
-                return self::ACTION_CANCEL;
-            case(self::STATUS_NEW&&$role==$this->executor):
-                return self::ACTION_RESPOND;
-            case(self::STATUS_IN_WORK&&$role==$this->customer):
-                return self::ACTION_DONE;
-            case(self::STATUS_IN_WORK&&$role==$this->executor):
-                return self::ACTION_REFUSE;
+        if ($this->status==self::STATUS_NEW) {
+            switch ($role) {
+                case ($this->customer):
+                    return self::ACTION_CANCEL;
+                case ($this->executor):
+                    return self::ACTION_RESPOND;
+            }
+        }
+        if ($this->status==self::STATUS_IN_WORK) {
+            switch ($role) {
+                case ($this->customer):
+                    return self::ACTION_DONE;
+                case ($this->executor):
+                    return self::ACTION_REFUSE;
+            }
         }
         return null;
    }
-
-
 }
 
