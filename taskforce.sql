@@ -76,7 +76,8 @@ CREATE TABLE users (
                      name VARCHAR(64) NOT NULL,
                      email VARCHAR(64) NOT NULL UNIQUE,
                      password VARCHAR(64) NOT NULL,
-                     add_date DATETIME NOT NULL
+                     add_date DATETIME NOT NULL,
+                     executor BOOL DEFAULT 1
 ) COMMENT = 'Таблица пользователей';
 
 CREATE INDEX user_ind ON users(email);
@@ -115,8 +116,8 @@ DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE reviews (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        task_id INT NOT NULL,
-                       custom_id INT NOT NULL COMMENT 'заказчик работы',
-                       contr_id INT NOT NULL COMMENT 'исполнитель работы',
+                       customer_id INT NOT NULL COMMENT 'заказчик работы',
+                       executor_id INT NOT NULL COMMENT 'исполнитель работы',
                        add_date DATETIME NOT NULL,
                        comment TEXT NOT NULL COMMENT 'отзыв заказчика о работе',
                        rating INT NOT NULL
