@@ -1,5 +1,5 @@
 <?php
-namespace Taskforce\classes;
+namespace Taskforce;
 class Task
 {
   private $executor;
